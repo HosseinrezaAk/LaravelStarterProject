@@ -11,5 +11,8 @@ class Post extends Model
     #Just in case u need them
     // protected  $table  = 'posts';
     // protected $primaryKey = 'post_id';
-
+    protected $fillable = [
+        'title',
+        'content'
+    ];
 }
