@@ -24,13 +24,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 |-----------------------------------------------------------------------
 */
 
-Route::get('/insert', function(){
-   
-    DB::insert('insert into posts(title, content) values(?,?)',['PHP with Laravel','Laravel is the best thing that has happened to PHP']);
+###Insert 1 row data to our DB
+// Route::get('/insert', function(){
+//     DB::insert('insert into posts(title, content) values(?,?)',['PHP with Laravel','Laravel is the best thing that has happened to PHP']);
+// });
 
+###Read data
+Route::get('/read',function(){
+    $results = DB::select('select * from posts where id =?',[1]);
+    foreach ($results as $post) {
+         return $post->title;
+    }
 });
-
-
 
 
 
