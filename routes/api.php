@@ -28,9 +28,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 ### Insert 1 row data to our DB
-// Route::get('/insert', function(){
-//     DB::insert('insert into posts(title, content) values(?,?)',['PHP with Laravel','Laravel is the best thing that has happened to PHP']);
-// });
+Route::get('/insert', function(){
+    DB::insert('insert into posts(title, content) values(?,?)',['Laravel is Awesome','Laravel is the best thing that has happened to PHP. Period']);
+});
 
 ### Read data
 // Route::get('/read',function(){
@@ -62,11 +62,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 */
 
 
+### Read data or find specific data
+// Route::get('/read',function(){
+//     $posts = Post::all();
+//     // $post = Post::find(2);
+//     foreach($posts as $post){
+//         return $post->title;
+//     }
+// });
 
-Route::get('/read',function(){
-    $posts = Post::all();
-    // $post = Post::find(2);
-    foreach($posts as $post){
-        return $post->title;
-    }
+Route::get('/findwhere',function(){
+    $posts = Post::where('id',2)->orderBy('id','desc')->take(1)->get();
+    return $posts;
 });
