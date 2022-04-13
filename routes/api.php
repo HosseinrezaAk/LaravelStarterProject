@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -60,3 +60,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 |  ELOQUENT ORM
 |-----------------------------------------------------------------------
 */
+
+
+
+Route::get('/read',function(){
+    $posts = Post::all();
+    // $post = Post::find(2);
+    foreach($posts as $post){
+        return $post->title;
+    }
+});
