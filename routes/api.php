@@ -37,11 +37,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     }
 // });
 
-Route::get('/update',function(){
-    $updated = DB::update('update posts set title= "Update title " where id = ?',[1]);
-    return $updated;
-});
+###Update data
+// Route::get('/update',function(){
+//     $updated = DB::update('update posts set title= "Update title " where id = ?',[1]);
+//     return $updated;
+// });
 
+###Delete Data
+
+Route::get('/delete',function(){
+    $deleted = DB::delete('delete from posts where id=?',[1]);
+    return $deleted;
+});
 
 
 /*
