@@ -78,7 +78,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $posts;
 // });
 
-Route::get('/findmore',function(){
-    $posts = Post::FindOrFail(2);
-    return $posts;
+
+### Another find method
+// Route::get('/findmore',function(){
+//     $posts = Post::FindOrFail(2);
+//     return $posts;
+// });
+
+###Insert method
+Route::get('/basicinsert',function(){
+    $post = new Post;
+    $post->title = 'New Eloquent title insert';
+    $post->content = 'Eloquent is really cool, wow!';
+    $post->save();
+});
+### Update method
+Route::get('/basicupdate',function(){
+    $post = Post::find(2);
+    $post->title = 'Updated title via basicUpdate';
+    $post->content = 'Eloquent is really cool, wow!';
+    $post->save();
 });
