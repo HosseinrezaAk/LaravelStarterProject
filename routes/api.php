@@ -103,7 +103,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     $post->save();
 // });
 
-Route::get('/create',function(){
-    Post::create(['title'=>'The create method','content'=>'WOW I\'m learning alot']);
 
+### CREATE method
+// Route::get('/create',function(){
+//     Post::create(['title'=>'The create method','content'=>'WOW I\'m learning alot']);
+
+// });
+
+###Update without save method
+Route::get('/update',function(){
+    Post::where('id',2)->update(['title'=>'newUpdate','content'=>'new COntent']);
 });
