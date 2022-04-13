@@ -110,7 +110,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // });
 
-###Update without save method
-Route::get('/update',function(){
-    Post::where('id',2)->update(['title'=>'newUpdate','content'=>'new COntent']);
+### Update without save method
+// Route::get('/update',function(){
+//     Post::where('id',2)->update(['title'=>'newUpdate','content'=>'new COntent']);
+// });
+
+### Delete Method 1
+Route::get('/delete1',function(){
+    $post = Post::find(2);
+    $post->delete();
+});
+
+### Delete Method2 , Delete mutliple values
+Route::get('/delete2',function(){
+    Post::destroy([4,5]);
 });
