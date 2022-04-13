@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -116,12 +117,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 ### Delete Method 1
-Route::get('/delete1',function(){
-    $post = Post::find(2);
-    $post->delete();
-});
+// Route::get('/delete1',function(){
+//     $post = Post::find(2);
+//     $post->delete();
+// });
 
 ### Delete Method2 , Delete mutliple values
-Route::get('/delete2',function(){
-    Post::destroy([4,5]);
+// Route::get('/delete2',function(){
+//     Post::destroy([4,5]);
+// });
+
+
+/*
+|-----------------------------------------------------------------------
+|  ELOQUENT RELATIONS
+|-----------------------------------------------------------------------
+*/
+
+#One To One Relationship
+Route::get('/user/{id}/post',function($id){
+    return User::find($id)->post;
 });
