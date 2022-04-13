@@ -85,17 +85,25 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $posts;
 // });
 
+
 ###Insert method
-Route::get('/basicinsert',function(){
-    $post = new Post;
-    $post->title = 'New Eloquent title insert';
-    $post->content = 'Eloquent is really cool, wow!';
-    $post->save();
-});
+// Route::get('/basicinsert',function(){
+//     $post = new Post;
+//     $post->title = 'New Eloquent title insert';
+//     $post->content = 'Eloquent is really cool, wow!';
+//     $post->save();
+// });
+
+
 ### Update method
-Route::get('/basicupdate',function(){
-    $post = Post::find(2);
-    $post->title = 'Updated title via basicUpdate';
-    $post->content = 'Eloquent is really cool, wow!';
-    $post->save();
+// Route::get('/basicupdate',function(){
+//     $post = Post::find(2);
+//     $post->title = 'Updated title via basicUpdate';
+//     $post->content = 'Eloquent is really cool, wow!';
+//     $post->save();
+// });
+
+Route::get('/create',function(){
+    Post::create(['title'=>'The create method','content'=>'WOW I\'m learning alot']);
+
 });
