@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 /*
 |-----------------------------------------------------------------------
-| RAW QUERIES
+| DATABASE RAW SQL QUERIES
 |-----------------------------------------------------------------------
 */
 
