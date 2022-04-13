@@ -30,14 +30,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 ###Read data
-Route::get('/read',function(){
-    $results = DB::select('select * from posts where id =?',[1]);
-    foreach ($results as $post) {
-         return $post->title;
-    }
+// Route::get('/read',function(){
+//     $results = DB::select('select * from posts where id =?',[1]);
+//     foreach ($results as $post) {
+//          return $post->title;
+//     }
+// });
+
+Route::get('/update',function(){
+    $updated = DB::update('update posts set title= "Update title " where id = ?',[1]);
+    return $updated;
 });
-
-
 
 
 
