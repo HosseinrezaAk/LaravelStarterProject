@@ -134,11 +134,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 |-----------------------------------------------------------------------
 */
 
-#One To One Relationship
-Route::get('/user/{id}/post',function($id){
-    return User::find($id)->post;
-});
+### One To One Relationship
+// Route::get('/user/{id}/post',function($id){
+//     return User::find($id)->post;
+// });
 
-Route::get('/post/{id}/user',function($id){
-    return Post::find($id)->user->name ; 
+// Route::get('/post/{id}/user',function($id){
+//     return Post::find($id)->user->name ; 
+// });
+
+
+### One to Many Relation
+Route::get('/posts',function(){
+   $user = User::find(1);
+   foreach($user->posts as $post){
+       
+   } 
 });
