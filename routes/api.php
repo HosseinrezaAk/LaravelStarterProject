@@ -145,9 +145,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 ### One to Many Relation
-Route::get('/posts',function(){
-   $user = User::find(1);
-   foreach($user->posts as $post){
-       echo $post->title . "<br>";
-   } 
+// Route::get('/posts',function(){
+//    $user = User::find(1);
+//    foreach($user->posts as $post){
+//        echo $post->title . "<br>";
+//    } 
+// });
+
+
+### Many to Many
+Route::get('/user/{id}/role',function($id){
+    $users = User::find($id);
+    foreach($users->roles as $role ){
+        echo $role->name ."<br>";
+    }
 });

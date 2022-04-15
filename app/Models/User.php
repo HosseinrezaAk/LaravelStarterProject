@@ -41,6 +41,10 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Models\Post');
     }
+
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
     /**
      * The attributes that should be cast.
      *
