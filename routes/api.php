@@ -164,10 +164,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     // }
 // });
 
+## accessing intermedate table
+// Route::get('/user/pivot',function(){
+//     $user = User::find(1);
+//     foreach($user->roles as $role){
+//         echo $role->pivot->created_at;
+//     }
+// });
 
-Route::get('/user/pivot',function(){
-    $user = User::find(1);
-    foreach($user->roles as $role){
-        echo $role->pivot->created_at;
-    }
-});
+
