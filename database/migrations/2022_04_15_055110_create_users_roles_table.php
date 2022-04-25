@@ -8,7 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * php artisan make:migration create_users_roles_table --create=role_user
      * @return void
      */
     public function up()

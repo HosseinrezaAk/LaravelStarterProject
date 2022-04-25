@@ -44,6 +44,7 @@ class User extends Authenticatable
 
     public function roles(){
         return $this->belongsToMany('App\Models\Role');
+        // return $this->belongsToMany('App\Models\Role', 'user_roles','user_id','role_id'); #incase u wanna customize
     }
     /**
      * The attributes that should be cast.
