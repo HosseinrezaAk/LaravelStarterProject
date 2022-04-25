@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Country;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -173,6 +175,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 
-Route::get('/user/countery',function(){
-
+Route::get('/user/country',function(){
+    $country = Country::find(1);
+    foreach($country->posts as $post){
+        echo $post->title;
+    }
 });
