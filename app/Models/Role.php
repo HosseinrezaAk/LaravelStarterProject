@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
+
+
+
+    #reverse many to many
+    public function users(){
+        return $this-> belongsToMany('App\Model\User');
+    }
 }

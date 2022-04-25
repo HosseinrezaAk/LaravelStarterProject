@@ -154,12 +154,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 ### Many to Many
-Route::get('/user/{id}/role',function($id){
+// Route::get('/user/{id}/role',function($id){
 
-    $user = User::find($id)->roles()->orderBy('id','desc')->get();
-    return $user;
-    // $users = User::find($id);
-    // foreach($users->roles as $role ){
-    //     echo $role->name ."<br>";
-    // }
+//     $user = User::find($id)->roles()->orderBy('id','desc')->get();
+//     return $user;
+//     // $users = User::find($id);
+//     // foreach($users->roles as $role ){
+//     //     echo $role->name ."<br>";
+//     // }
+// });
+
+
+Route::get('/user/pivot',function(){
+    $user = User::find(1);
+    foreach($user->roles as $role){
+        echo $role->pivot->created_at;
+    }
 });
