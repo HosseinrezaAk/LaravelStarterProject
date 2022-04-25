@@ -8,13 +8,14 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *php artisan make:migration add_country_id_column_to_users --table=users
      * @return void
      */
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->integer('country_id');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->dropColumn('country_id');
         });
     }
 };
