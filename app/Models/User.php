@@ -46,6 +46,17 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Role')->withPivot('created_at');
         // return $this->belongsToMany('App\Models\Role', 'user_roles','user_id','role_id'); #incase u wanna customize
     }
+
+    public function photos(){
+
+        return $this->morphMany('App\Photo','imageable');
+
+    }
+
+
+
+
+
     /**
      * The attributes that should be cast.
      *
