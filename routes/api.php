@@ -166,7 +166,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     // }
 // });
 
-## accessing intermedate table
+### accessing intermedate table
 // Route::get('/user/pivot',function(){
 //     $user = User::find(1);
 //     foreach($user->roles as $role){
@@ -174,10 +174,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     }
 // });
 
-
-Route::get('/user/country',function(){
-    $country = Country::find(1);
-    foreach($country->posts as $post){
-        echo $post->title;
-    }
-});
+### Has many Through relationship
+// Route::get('/user/country',function(){
+//     $country = Country::find(1);
+//     foreach($country->posts as $post){
+//         echo $post->title."<br>";
+//         echo $country;
+//     }
+// });
