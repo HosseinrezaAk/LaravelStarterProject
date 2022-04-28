@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Country;
+use App\Models\Photo;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,4 +195,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     }
 // });
 
-##inverse Poly
+### inverse Poly
+Route::get('photo/{id}/post', function($id){
+    $photo = Photo::findorFail($id);
+    return $photo;
+});
