@@ -182,3 +182,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //         echo $country;
 //     }
 // });
+
+
+
+### PolyMorphic
+
+// Route::get('user/photos',function(){
+//     $user = User::find(1);
+//     foreach($user->photos as $photo){
+//         return $photo;
+//     }
+// });
+
+##inverse Poly

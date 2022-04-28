@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('path');
             $table->integer('imageable_id');
-            $table->string('imageable_string');
+            $table->string('imageable_type');
             $table->timestamps();
         });
     }
