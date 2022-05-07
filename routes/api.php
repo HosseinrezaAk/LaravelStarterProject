@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
@@ -206,5 +207,13 @@ Route::get('/post/tag',function (){
     $post = Post::find(1);
     foreach($post->tags as $tag){
         echo $tag->name;
+    }
+});
+
+Route::get('/tag/post',function (){
+    $tag = Tag::find(2);
+
+    foreach($tag->posts as $post){
+        echo $post->title;
     }
 });
