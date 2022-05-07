@@ -143,7 +143,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 // Route::get('/post/{id}/user',function($id){
-//     return Post::find($id)->user->name ; 
+//     return Post::find($id)->user->name ;
 // });
 
 
@@ -152,7 +152,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    $user = User::find(1);
 //    foreach($user->posts as $post){
 //        echo $post->title . "<br>";
-//    } 
+//    }
 // });
 
 
@@ -196,7 +196,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 ### inverse Poly
-Route::get('photo/{id}/post', function($id){
-    $photo = Photo::findorFail($id);
-    return $photo;
-});
+//Route::get('photo/{id}/post', function($id){
+//    $photo = Photo::findorFail($id);
+//    return $photo;
+//});
+
+###
