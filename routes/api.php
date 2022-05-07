@@ -201,4 +201,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $photo;
 //});
 
-###
+### Many TO many Poly
+Route::get('/post/tag',function (){
+    $post = Post::find(1);
+    foreach($post->tags as $tag){
+        echo $tag->name;
+    }
+});
