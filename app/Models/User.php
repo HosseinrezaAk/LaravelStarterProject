@@ -32,31 +32,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
-    public function post(){
-
-        return $this->hasOne('App\Models\Post');
-    }
-
-    public function posts(){
-        return $this->hasMany('App\Models\Post');
-    }
-
-    public function roles(){
-        return $this->belongsToMany('App\Models\Role')->withPivot('created_at');
-        // return $this->belongsToMany('App\Models\Role', 'user_roles','user_id','role_id'); #incase u wanna customize
-    }
-
-    public function photos(){
-
-        return $this->morphMany('App\Models\Photo','imageable');
-
-    }
-
-
-
-
-
     /**
      * The attributes that should be cast.
      *
