@@ -74,3 +74,9 @@ Route::get('/attach',function (){
 });
 
 
+
+Route::get('/detach',function (){
+    $user = User::findorfail(1);
+    $user->roles()->detach(1);
+});
+
