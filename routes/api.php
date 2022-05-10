@@ -73,13 +73,4 @@ Route::get('/attach',function (){
     $user->roles()->attach(1);
 });
 
-Route::get('/detach',function (){
-    $user = User::findorfail(1);
-    $user->roles()->detach(1);
-});
-
-Route::get('/sync',function (){
-    $user = User::findorfail(1);
-    $user->roles()->sync([1]);
-});
 
