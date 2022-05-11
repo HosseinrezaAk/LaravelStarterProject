@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Role;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,193 +28,59 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 /*
 |-----------------------------------------------------------------------
-| DATABASE RAW SQL QUERIES
+| Many TO Many Crud
 |-----------------------------------------------------------------------
 */
 
+Route::get('/create/',function (){
+    $user = User::find(1);
+    $role = new Role(['name'=>'Administrator']);
+    $user->roles()->save($role);
+});
 
-### Insert 1 row data to our DB
-// Route::get('/insert', function(){
-//     DB::insert('insert into posts(title, content) values(?,?)',['Laravel is Awesome','Laravel is the best thing that has happened to PHP. Period']);
-// });
+Route::get('/create/role/{roleName}',function ($roleName){
+    $newRole = new Role(['name'=>$roleName]);
+    $newRole->save();
+});
 
-### Read data
-// Route::get('/read',function(){
-//     $results = DB::select('select * from posts where id =?',[1]);
-//     foreach ($results as $post) {
-//          return $post->title;
-//     }
-// });
-
-### Update data
-// Route::get('/update',function(){
-//     $updated = DB::update('update posts set title= "Update title " where id = ?',[1]);
-//     return $updated;
-// });
-
-### Delete Data
-// Route::get('/delete',function(){
-//     $deleted = DB::delete('delete from posts where id=?',[1]);
-//     return $deleted;
-// });
-
-
-
-
-/*
-|-----------------------------------------------------------------------
-|  ELOQUENT ORM
-|-----------------------------------------------------------------------
-*/
-
-
-### Read data or find specific data
-// Route::get('/read',function(){
-//     $posts = Post::all();
-//     // $post = Post::find(2);
-//     foreach($posts as $post){
-//         return $post->title;
-//     }
-// });
-
-
-### Get specific data with specific options
-// Route::get('/findwhere',function(){
-//     $posts = Post::where('id',2)->orderBy('id','desc')->take(1)->get();
-//     return $posts;
-// });
-
-
-### Another find method
-// Route::get('/findmore',function(){
-//     $posts = Post::FindOrFail(2);
-//     return $posts;
-// });
-
-
-###Insert method
-// Route::get('/basicinsert',function(){
-//     $post = new Post;
-//     $post->title = 'New Eloquent title insert';
-//     $post->content = 'Eloquent is really cool, wow!';
-//     $post->save();
-// });
-
-
-### Update method
-// Route::get('/basicupdate',function(){
-//     $post = Post::find(2);
-//     $post->title = 'Updated title via basicUpdate';
-//     $post->content = 'Eloquent is really cool, wow!';
-//     $post->save();
-// });
-
-
-### CREATE method
-// Route::get('/create',function(){
-//     Post::create(['title'=>'The create method','content'=>'WOW I\'m learning alot']);
-
-// });
-
-### Update without save method
-// Route::get('/update',function(){
-//     Post::where('id',2)->update(['title'=>'newUpdate','content'=>'new COntent']);
-// });
-
-### Delete Method 1
-// Route::get('/delete1',function(){
-//     $post = Post::find(2);
-//     $post->delete();
-// });
-
-### Delete Method2 , Delete mutliple values
-// Route::get('/delete2',function(){
-//     Post::destroy([4,5]);
-// });
-
-
-/*
-|-----------------------------------------------------------------------
-|  ELOQUENT RELATIONS
-|-----------------------------------------------------------------------
-*/
-
-### One To One Relationship
-// Route::get('/user/{id}/post',function($id){
-//     return User::find($id)->post;
-// });
-
-// Route::get('/post/{id}/user',function($id){
-//     return Post::find($id)->user->name ;
-// });
-
-
-### One to Many Relation
-// Route::get('/posts',function(){
-//    $user = User::find(1);
-//    foreach($user->posts as $post){
-//        echo $post->title . "<br>";
-//    }
-// });
-
-
-### Many to Many
-// Route::get('/user/{id}/role',function($id){
-
-//     $user = User::find($id)->roles()->orderBy('id','desc')->get();
-//     return $user;
-//     // $users = User::find($id);
-//     // foreach($users->roles as $role ){
-//     //     echo $role->name ."<br>";
-//     // }
-// });
-
-### accessing intermedate table
-// Route::get('/user/pivot',function(){
-//     $user = User::find(1);
-//     foreach($user->roles as $role){
-//         echo $role->pivot->created_at;
-//     }
-// });
-
-### Has many Through relationship
-// Route::get('/user/country',function(){
-//     $country = Country::find(1);
-//     foreach($country->posts as $post){
-//         echo $post->title."<br>";
-//         echo $country;
-//     }
-// });
-
-
-
-### PolyMorphic
-
-// Route::get('user/photos',function(){
-//     $user = User::find(1);
-//     foreach($user->photos as $photo){
-//         return $photo;
-//     }
-// });
-
-### inverse Poly
-//Route::get('photo/{id}/post', function($id){
-//    $photo = Photo::findorFail($id);
-//    return $photo;
-//});
-
-### Many TO many Poly
-Route::get('/post/tag',function (){
-    $post = Post::find(1);
-    foreach($post->tags as $tag){
-        echo $tag->name;
+Route::get('/read',function (){
+    $user = User::findorfail(1);
+    foreach ($user->roles as $role){
+        echo $role->name;
     }
 });
 
-Route::get('/tag/post',function (){
-    $tag = Tag::find(2);
-
-    foreach($tag->posts as $post){
-        echo $post->title;
+Route::get('/update/{user_id}/{roleName}', function ($user_id,$roleName){
+    $user = User::find($user_id);
+    $roles = $user->roles();
+    foreach($roles as $role){
+        $role->name = $roleName;
+        $role->save();
     }
+
+});
+
+Route::get('/delete/{user_id}/{role_id}',function ($user_id,$role_id){
+    $user = User::find($user_id);
+    foreach($user->roles as $role){
+        $role->where('id',$role_id)->delete();
+    }
+});
+
+
+Route::get('/attach',function (){
+    $user = User::findorfail(1);
+    $user->roles()->attach(1);
+});
+
+
+
+Route::get('/detach',function (){
+    $user = User::findorfail(1);
+    $user->roles()->detach(1);
+});
+
+Route::get('/sync',function (){
+    $user = User::findorfail(1);
+    $user->roles()->sync([1]);
 });
