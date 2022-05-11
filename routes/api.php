@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Staff;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,28 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 |-----------------------------------------------------------------------
 */
 
+Route::get('/create',function (){
+    $staff = Staff::find(1);
+    $staff->photos()->create(['path'=>'example.jpg']);
+});
+
+Route::get('/read',function (){
+   $staff = Staff::find(1);
+   foreach ($staff->photos as $photo){
+       return $photo->path;
+    }
+});
+
+Route::get('/update',function (){
+    $staff = Staff::find(1);
+    $photo = $staff->photos()->whereId(1)->first();
+    $photo->path = "updated example.jpg";
+    $photo->save();
+});
+
+
+Route::get('/delete',function (){
+    $staff = Staff::findorfail(1);
+    $photo = $staff->photos()->whereId(1)->first();
+    $photo->delete();
+});
