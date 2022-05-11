@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
+            $table->string('patch');
+            $table->integer('imageable_id');
+            $table->string('imageable_type');
             $table->timestamps();
         });
     }
