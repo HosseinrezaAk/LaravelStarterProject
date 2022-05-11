@@ -1,12 +1,9 @@
 <?php
 
 use App\Models\Staff;
-use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Post;
 use App\Models\User;
-use App\Models\Country;
 use App\Models\Photo;
 
 /*
@@ -57,3 +54,15 @@ Route::get('/delete',function (){
     $photo = $staff->photos()->whereId(1)->first();
     $photo->delete();
 });
+
+Route::get('/assign',function (){
+   $staff = Staff::find(1);
+   $photo = Photo::find(2);
+   $staff->photos()->save($photo);
+});
+
+Route::get('/un-assign',function (){
+    $staff = Staff::find(1);
+    $staff->photos()->whereId(2)->update(['imageable_id'=>'12','imageable_type'=>'']);
+});
+
