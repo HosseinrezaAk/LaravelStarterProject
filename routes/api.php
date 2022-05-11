@@ -68,3 +68,19 @@ Route::get('/delete/{user_id}/{role_id}',function ($user_id,$role_id){
 });
 
 
+Route::get('/attach',function (){
+    $user = User::findorfail(1);
+    $user->roles()->attach(1);
+});
+
+
+
+Route::get('/detach',function (){
+    $user = User::findorfail(1);
+    $user->roles()->detach(1);
+});
+
+Route::get('/sync',function (){
+    $user = User::findorfail(1);
+    $user->roles()->sync([1]);
+});
