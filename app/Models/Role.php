@@ -9,5 +9,10 @@ class Role extends Model
 {
     use HasFactory;
 
-    protected $fillable =['name'];
+
+
+    #reverse many to many#
+    public function users(){
+        return $this-> belongsToMany('App\Model\User');
+    }
 }
