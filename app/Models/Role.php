@@ -11,7 +11,7 @@ class Role extends Model
 
 
 
-    #reverse many to many
+    #reverse many to many#
     public function users(){
         return $this-> belongsToMany('App\Model\User');
     }
