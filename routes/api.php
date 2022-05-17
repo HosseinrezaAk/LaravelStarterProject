@@ -203,17 +203,27 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //});
 
 ### Many TO many Poly
-Route::get('/post/tag',function (){
-    $post = Post::find(1);
-    foreach($post->tags as $tag){
-        echo $tag->name;
-    }
-});
+//Route::get('/post/tag',function (){
+//    $post = Post::find(1);
+//    foreach($post->tags as $tag){
+//        echo $tag->name;
+//    }
+//});
+//
+//Route::get('/tag/post',function (){
+//    $tag = Tag::find(2);
+//
+//    foreach($tag->posts as $post){
+//        echo $post->title;
+//    }
+//});
 
-Route::get('/tag/post',function (){
-    $tag = Tag::find(2);
 
-    foreach($tag->posts as $post){
-        echo $post->title;
-    }
-});
+
+
+/*
+|-----------------------------------------------------------------------
+|  CRUD form Application
+|-----------------------------------------------------------------------
+*/
+
