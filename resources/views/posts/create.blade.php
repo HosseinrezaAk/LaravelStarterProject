@@ -5,8 +5,8 @@
 
 @section('content')
 
-    <form method="post" action="/posts">
-        <input type="text" name="title" placeholder="Enter title">
+    <form method="post" action="/api/posts">
+        <input type="text" name="title" placeholder="Enter title" >
         <input type="submit" name="submit">
     </form>
 
