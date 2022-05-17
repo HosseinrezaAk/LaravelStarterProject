@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    // php artisan make:controller --resource PostsController
     /**
      * Display a listing of the resource.
      *
