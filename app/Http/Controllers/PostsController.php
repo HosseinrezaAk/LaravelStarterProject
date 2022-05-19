@@ -16,6 +16,7 @@ class PostsController extends Controller
     public function index()
     {
         //
+        return "Hello";
     }
 
     /**
@@ -42,7 +43,7 @@ class PostsController extends Controller
 
         ###ways of Store
         Post::create($request->all());
-
+        return redirect('/api/posts');
 //        $input = $request->all();
 //        $input['title'] = $request->title;
 

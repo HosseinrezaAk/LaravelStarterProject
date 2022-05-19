@@ -11,4 +11,4 @@
     </form>
 
 
-@yield('footer')
+@endsection
