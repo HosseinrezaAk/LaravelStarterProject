@@ -63,6 +63,8 @@ class PostsController extends Controller
     public function show($id)
     {
         //
+        $post = Post::findorfail($id);
+        return view('posts.show',compact('post'));
     }
 
     /**
@@ -74,6 +76,8 @@ class PostsController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::findorfail($id);
+        return view('posts.edit','post');
     }
 
     /**
