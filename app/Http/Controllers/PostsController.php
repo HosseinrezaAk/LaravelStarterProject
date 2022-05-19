@@ -77,7 +77,7 @@ class PostsController extends Controller
     {
         //
         $post = Post::findorfail($id);
-        return view('posts.edit','post');
+        return view('posts.edit',compact('post'));
     }
 
     /**
@@ -90,6 +90,11 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $post = Post::findorfail($id);
+        $post->update($request->all());
+//        $post->title = $request->title;
+//        $post->save();
+        return redirect('/api/posts');
     }
 
     /**
@@ -101,5 +106,8 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::findorfail($id);
+        $post->delete();
+        return redirect('/api/posts');
     }
 }
