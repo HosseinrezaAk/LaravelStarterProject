@@ -228,4 +228,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 |-----------------------------------------------------------------------
 */
 
-Route::resource('/posts',PostsController::class);
+
+
+Route::group(['middleware'=>'web'],function(){
+    Route::resource('/posts',PostsController::class);
+});
