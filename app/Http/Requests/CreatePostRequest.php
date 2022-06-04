@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreatePostRequest extends FormRequest
 {
+    // php artisan make:request CreatePostRequest
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +14,7 @@ class CreatePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,6 +25,7 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
+            'title'=>'required'
             //
         ];
     }
