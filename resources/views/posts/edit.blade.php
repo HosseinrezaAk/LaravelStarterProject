@@ -16,10 +16,11 @@
             {!! Form::submit('Update Post',['class'=>"btn btn-info"]) !!}
         {!! Form::close() !!}
 
-    <form method="post" action="/api/posts/{{$post->id}}">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="DELETE">
-
-    </form>
-
+{{--    <form method="post" action="/api/posts/{{$post->id}}">--}}
+{{--        <input type="hidden" name="_method" value="DELETE">--}}
+{{--        <input type="submit" value="DELETE">--}}
+{{--    </form>--}}
+        {!! Form::open(['method'=>'DELETE', 'route'=>['posts.destroy',$post->id]]) !!}
+            {!! Form::submit('Delete Post',['class'=>"btn btn-danger"]) !!}
+        {!! Form::close() !!}
 @endsection
