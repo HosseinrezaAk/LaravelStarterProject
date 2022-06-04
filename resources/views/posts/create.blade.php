@@ -12,7 +12,10 @@
             {!! Form::label('title','Title: ') !!}
             {!! Form::text('title',null,['class'=>'form-control']) !!}
         </div>
-        {!! Form::submit('Create Post',['class'=>'btn btn-primary']) !!}
+        <div class="form-group">
+            {!! Form::submit('Create Post',['class'=>'btn btn-primary']) !!}
+        </div>
+
 
     {!! Form::close() !!}
 
