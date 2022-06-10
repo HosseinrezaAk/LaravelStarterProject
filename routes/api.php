@@ -233,3 +233,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware'=>'web'],function(){
     Route::resource('/posts',PostsController::class);
 });
+
+Route::get('/dates',function(){
+   $date = new DateTime('+1 week');
+   echo $date->format('d-m-Y');
+
+
+});
