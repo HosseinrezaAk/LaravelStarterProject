@@ -55,15 +55,18 @@ class User extends Authenticatable
     }
 
     /**
-     * @return Attribute
      * Accessor for getting attribute
+     * @return Attribute
+     *
      */
     protected function name(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => ucfirst($value),
+            get: fn ($value) => ucfirst($value), //accessor
+            set: fn($value) => strtoupper($value) //mutator
         );
     }
+
 
 
 
