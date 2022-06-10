@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostsController;
 use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
@@ -238,5 +239,12 @@ Route::get('/dates',function(){
    $date = new DateTime('+1 week');
    echo $date->format('d-m-Y');
 
+    echo '<br>';
+    echo Carbon::now()->addDay(10)->diffForHumans();
 
+    echo '<br>';
+    echo Carbon::now()->subDay(10)->diffForHumans();
+
+    echo '<br>';
+    echo Carbon::now()->yesterday();
 });
