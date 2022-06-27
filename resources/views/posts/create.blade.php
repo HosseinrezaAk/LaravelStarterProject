@@ -6,7 +6,12 @@
 @section('content')
     <h1>Create View</h1>
 {{--    <form method="post" action="/api/posts">--}}
-    {!! Form::open(['method'=>'POST', 'route'=>'posts.store']) !!}
+    {!! Form::open(['method'=>'POST', 'route'=>'posts.store','files'=>true]) !!}
+
+        <div class="form-group">
+            {!! Form::label('title','Title: ') !!}
+            {!! Form::text('title',null,['class'=>'form-control']) !!}
+        </div>
 
         <div class="form-group">
             {!! Form::label('title','Title: ') !!}
