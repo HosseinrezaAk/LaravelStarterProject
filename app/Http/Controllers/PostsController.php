@@ -40,6 +40,22 @@ class PostsController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
+
+
+
+
+
+//        $file = $request->file('file');
+//
+//        echo '<br>';
+//        echo $file->getClientOriginalName();
+//        echo $file->getClientSize();
+
+
+
+
+
+
         // we changed this validation to use it from CreatePostRequest
 //        $this->validate($request ,[
 //           'title'=>'required',
@@ -47,8 +63,8 @@ class PostsController extends Controller
 //        return $request->all();
 
         ###ways of Store
-        Post::create($request->all());
-        return redirect('/api/posts');
+//        Post::create($request->all());
+//        return redirect('/api/posts');
 //        $input = $request->all();
 //        $input['title'] = $request->title;
 
