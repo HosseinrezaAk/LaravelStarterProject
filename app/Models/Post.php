@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    public $directory= "/images/";
     use HasFactory;
     #Just in case u need them
     // protected  $table  = 'posts';
@@ -33,5 +35,12 @@ class Post extends Model
 
     public function scopeLatestPosts($query){
         return $query->orderBy('id','asc')->get();
+    }
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $this->directory, //accessor
+
+        );
     }
 }
