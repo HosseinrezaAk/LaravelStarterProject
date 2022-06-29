@@ -46,9 +46,10 @@ class PostsController extends Controller
         {
             $name = $file->getClientOriginalName();
             $file->move('image',$name);
-
+            $input['path'] = $name;
         }
 
+        Post::create($input);
 
 
 

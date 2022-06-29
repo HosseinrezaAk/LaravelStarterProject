@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
+            $table -> string('path');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
+            $table->dropColumn('path');
         });
     }
 };
