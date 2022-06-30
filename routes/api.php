@@ -234,28 +234,28 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware'=>'web'],function(){
     Route::resource('/posts',PostsController::class);
 });
-
-Route::get('/dates',function(){
-   $date = new DateTime('+1 week');
-   echo $date->format('d-m-Y');
-
-    echo '<br>';
-    echo Carbon::now()->addDay(10)->diffForHumans();
-
-    echo '<br>';
-    echo Carbon::now()->subDay(10)->diffForHumans();
-
-    echo '<br>';
-    echo Carbon::now()->yesterday();
-});
-
-Route::get('/getname',function (){
-    $user = User::find(1);
-    echo $user->name;
-});
-
-Route::get('/setname',function(){
-    $user = User::find(1);
-    $user->name ='wiliam';
-    $user->save();
-});
+//
+//Route::get('/dates',function(){
+//   $date = new DateTime('+1 week');
+//   echo $date->format('d-m-Y');
+//
+//    echo '<br>';
+//    echo Carbon::now()->addDay(10)->diffForHumans();
+//
+//    echo '<br>';
+//    echo Carbon::now()->subDay(10)->diffForHumans();
+//
+//    echo '<br>';
+//    echo Carbon::now()->yesterday();
+//});
+//
+//Route::get('/getname',function (){
+//    $user = User::find(1);
+//    echo $user->name;
+//});
+//
+//Route::get('/setname',function(){
+//    $user = User::find(1);
+//    $user->name ='wiliam';
+//    $user->save();
+//});
