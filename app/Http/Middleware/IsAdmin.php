@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IsAdmin
 {
@@ -16,9 +17,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
+        //after that go to class you wanna use this middleware and call this middleware into the __construct
         $user =  Auth::user();
         if($user->isAdmin()){
-
+            return redirect()->intended('admin');
         }
         return $next($request);
     }
