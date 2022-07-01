@@ -259,3 +259,15 @@ Route::group(['middleware'=>'web'],function(){
 //    $user->name ='wiliam';
 //    $user->save();
 //});
+
+
+/*
+|-----------------------------------------------------------------------
+|  MIDDLEWARE for Application
+|-----------------------------------------------------------------------
+*/
+
+Route::get('/admin/users/roles',['middleware'=>'role',function(){
+
+    return "Middleware role";
+}]);
