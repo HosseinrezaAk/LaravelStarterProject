@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class RoleMiddleware
 {
     /**
+     * COMMAND : php artisan make:middleware RoleMiddleware
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
