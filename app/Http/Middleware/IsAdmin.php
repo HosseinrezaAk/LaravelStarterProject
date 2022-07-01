@@ -4,12 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class RoleMiddleware
+class IsAdmin
 {
     /**
-     * COMMAND : php artisan make:middleware RoleMiddleware
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -18,8 +16,10 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        redirect('/');
+        $user =  Auth::user();
+        if($user->isAdmin()){
 
+        }
         return $next($request);
     }
 }

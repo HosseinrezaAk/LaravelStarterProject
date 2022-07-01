@@ -67,6 +67,17 @@ class User extends Authenticatable
         );
     }
 
+    public function isAdmin()
+    {
+        if ($this->role->name == 'Adminstrator') // imagine u have a role method
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 
 
