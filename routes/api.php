@@ -269,5 +269,6 @@ Route::group(['middleware'=>'web'],function(){
 
 Route::get('/admin/users/roles',['middleware'=>'role',function(){
 
+    //now go handle everything in the middleware file
     return "Middleware role";
 }]);
