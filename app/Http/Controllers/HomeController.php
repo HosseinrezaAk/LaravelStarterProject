@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     * this controller made by auth
      * @return void
      */
     public function __construct()
