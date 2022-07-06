@@ -29,7 +29,11 @@ class HomeController extends Controller
 //        return $request->session()->all();  // to see all inside of session
 
 //        $request->session()->forget('hos');  // to delete a key + value from session
+//        $request->session()->flush(); // to clear everything inside of a session
 
+//        $request->session()->flash(['key','value']); // only availble in session for 1 request
+//        $request->session()->get('key'); // u can see the key in the flash here
+//        $request->session()->keep('key') // to keep the flash data
         return view('home');
     }
 }
