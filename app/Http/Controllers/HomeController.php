@@ -23,10 +23,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $request->session()->put(['Hos'=>"master instructor"]);
+//        $request->session()->put(['Hos'=>"master instructor"]);  //for adding to session
         //remember session in global
         // session(["hos"=> "master instructro"]);  // you can use this instead of using $request
-        return $request->session()->all();
+//        return $request->session()->all();  // to see all inside of session
+
+//        $request->session()->forget('hos');  // to delete a key + value from session
 
         return view('home');
     }
