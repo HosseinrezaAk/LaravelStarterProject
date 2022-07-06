@@ -24,6 +24,8 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $request->session()->put(['Hos'=>"master instructor"]);
+        //remember session in global
+        // session(["hos"=> "master instructro"]);  // you can use this instead of using $request
         return $request->session()->all();
 
         return view('home');
