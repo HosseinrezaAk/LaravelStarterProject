@@ -35,6 +35,7 @@ class HomeController extends Controller
 //        $request->session()->get('key'); // u can see the key in the flash here
 //        $request->session()->keep('key') // to keep the flash data
 //        $request->session()->reflash();
+        //
         return view('home');
     }
 }
