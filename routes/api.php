@@ -4,6 +4,7 @@ use App\Http\Controllers\PostsController;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
@@ -285,4 +286,7 @@ Route::get('/mail',function (){
         'content' => "this is COntent of my message"
     ];
 
+    Mail::send('emails.test',$data, function($message){
+        $message->to('Hos@2x.com','Hossein')->subject('Hello');
+    });
 });
