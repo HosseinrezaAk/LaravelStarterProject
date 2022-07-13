@@ -272,3 +272,17 @@ Route::get('/admin/users/roles',['middleware'=>'role',function(){
     //now go handle everything in the middleware files
     return "Middleware role";
 }]);
+
+/*
+|-----------------------------------------------------------------------
+|  EMAIL
+|-----------------------------------------------------------------------
+*/
+
+Route::get('/mail',function (){
+    $data = [
+        'title' => 'Hi this is my message',
+        'content' => "this is COntent of my message"
+    ];
+
+});
