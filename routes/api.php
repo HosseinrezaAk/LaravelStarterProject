@@ -281,6 +281,7 @@ Route::get('/admin/users/roles',['middleware'=>'role',function(){
 */
 
 Route::get('/mail',function (){
+    //composer require guzzlehttp/guzzle
     $data = [
         'title' => 'Hi this is my message',
         'content' => "this is COntent of my message"
